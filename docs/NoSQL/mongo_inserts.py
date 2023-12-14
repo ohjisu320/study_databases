@@ -9,7 +9,7 @@ collection=local["fruits"]
 
 dict_fruits = {"과일이름": "오렌지", "색상": "주황색", "원산지": "미국"}
 
-result = collection.insert_one(dict_fruit)
+result = collection.insert_one(dict_fruits)
 
 local.fruits.insert_one(
     {"과일이름": "오렌지", "색상": "주황색", "원산지": "미국"})
