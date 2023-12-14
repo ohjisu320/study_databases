@@ -7,9 +7,7 @@ local=mongoClient["local"]
 # insert 작업 진행
 collection=local["fruits"]
 
-dict_fruits = {"과일이름": "오렌지", "색상": "주황색", "원산지": "미국"}
-
-result = collection.insert_one(dict_fruit)
-
-local.fruits.insert_one(
-    {"과일이름": "오렌지", "색상": "주황색", "원산지": "미국"})
+mix_fruit= {"name": "오렌지",
+            "color": ["주황색", "갈색", "노란색"],
+            "origin": "미국"}
+result=collection.insert_one(mix_fruit)
