@@ -12,7 +12,7 @@ def insert_fruits(x) :
     return fruits_info
 
 #insert할 변수 설정
-fruits_add =fruit_info = [
+fruits_add = [
     {"name": "사과", "color": "빨간색", "origin": "한국"},
     {"name": "바나나", "color": "노란색", "origin": "필리핀"},
     {"name": "키위", "color": "갈색", "origin": "뉴질랜드"},
