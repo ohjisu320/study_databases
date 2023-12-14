@@ -7,8 +7,7 @@ def connect_mongo(collection_name):
     dict_fruit_info=database[collection_name]
     return dict_fruit_info
 # insert하는 function create
-def insert_fruits(x, collection_name) :
-    fruits_info=connect_mongo(collection_name) # 내가 생성할(사용할) collection 이름
+def insert_fruits(x) :
     fruits_info.insert_many(x)
     return fruits_info
 
@@ -19,7 +18,7 @@ fruits_add =fruit_info = [
     {"name": "키위", "color": "갈색", "origin": "뉴질랜드"},
     {"name": "오렌지", "color": "주황색", "origin": "미국"}
 ]
-
+fruits_info=connect_mongo( "fruits_info") # 내가 생성할(사용할) collection 이름
 # insert_fruits에 insert할 변수 넣어서 실행
-insert_fruits(fruits_add, "fruits_info") # 내가 생성할(사용할) collection 이름=fruits_info
+insert_fruits(fruits_add) # 내가 생성할(사용할) collection 이름=fruits_info
 pass
