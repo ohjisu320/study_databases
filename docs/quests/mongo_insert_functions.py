@@ -1,17 +1,14 @@
 
-# mongodb에 접속 -> 접속 자원을 class로 지정(teacher : 자원에 대한 class)
-def connect_mongo():
+# collection_name에 생성할 collection의 이름을 넣을 것임
+def connect_mongo(collection_name):
     from pymongo import MongoClient
     mongoClient=MongoClient("mongodb://localhost:27017")
-    # database 연결
     database=mongoClient["local"]
-    # collection에 작업
-    dict_fruit_info=database['fruits_info']
-    # insert 작업 진행
+    dict_fruit_info=database[collection_name]
     return dict_fruit_info
 # insert하는 function create
-def insert_fruits(x) :
-    fruits_info=connect_mongo()
+def insert_fruits(x, collection_name) :
+    fruits_info=connect_mongo(collection_name) # 내가 생성할(사용할) collection 이름
     fruits_info.insert_many(x)
     return fruits_info
 
@@ -22,8 +19,7 @@ fruits_add =fruit_info = [
     {"name": "키위", "color": "갈색", "origin": "뉴질랜드"},
     {"name": "오렌지", "color": "주황색", "origin": "미국"}
 ]
-# connect_mongo() function 실행
-connect_mongo()
+
 # insert_fruits에 insert할 변수 넣어서 실행
-insert_fruits(fruits_add)
+insert_fruits(fruits_add, "fruits_info") # 내가 생성할(사용할) collection 이름=fruits_info
 pass
