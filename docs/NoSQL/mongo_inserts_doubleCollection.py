@@ -11,3 +11,5 @@ mix_fruit= {"name": "오렌지",
             "color": ["주황색", "갈색", "노란색"],
             "origin": "미국"}
 result=collection.insert_one(mix_fruit)
+
+pass
