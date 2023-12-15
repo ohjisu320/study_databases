@@ -3,9 +3,9 @@ from pymongo import MongoClient
 # database 연결
 mongoClient=MongoClient("mongodb://localhost:27017/")
 # collection 작업
-local=mongoClient["local"]
+database=mongoClient["local"]
 # insert 작업 진행
-collection=local["fruits"]
+collection=database["fruits"]
 
 dict_fruits = {"과일이름": "오렌지", "색상": "주황색", "원산지": "미국"}
 
