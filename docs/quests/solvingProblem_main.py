@@ -39,5 +39,5 @@ quiz_list = [
     }
 ]
 solvingProblem_function.quiz_connect(quiz_list)
-solvingProblem_function.quiz_print(solvingProblem)
+solvingProblem_function.quiz_print(solvingProblem, quiz_list)
 pass

@@ -10,11 +10,12 @@ def connect_mongo(collection_name):
 def quiz_connect(quiz_list) :
     solvingProblem=connect_mongo("solvingProblem")
     solvingProblem.insert_many(quiz_list)
+    return quiz_list
 # user 화면에 출력
-def quiz_print(collection) :
+def quiz_print(collection, quiz_list) :
     solvingproblem = collection.find({}) #solvingproblem에 solvingProblem(collection) 전체 불러오기
     print("아래는 5개의 Python 관련 문제와 각 문항의 난이도에 따른 점수화")
-    for i in range(5) :
+    for i in range(len(quiz_list)) :
         print("문제{}.{}".format(i+1, solvingproblem[i]["question"])) 
         for j in range(4) :
             print("{}.{}".format(j+1, solvingproblem[i]["choices"][j]))
