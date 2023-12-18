@@ -22,14 +22,14 @@ todo_list_source = [
         {"title": "팀 멤버와의 1:1 면담", "description": "팀 멤버와 개별적으로 만나서 그들의 업무 진행 상황, 이슈, 우려사항 등을 논의합니다."},]
 
 
-class userint():
+class userint:
     def __init__(self) -> None:
         self.col_participants=connectdb("participants")
         pass
     def input_name(self) :
         self.col_todos_list=insert_todo(todo_list_source)
         self.username=input("Input Your Name:  ")
-        self.inserted_username=self.col_participants.insert_one({"User":username})  # username에 User가 input한 값 넣기
+        self.inserted_username=self.col_participants.insert_one({"User":self.username})  # username에 User가 input한 값 넣기
     def userinterface(self):
         user_id=self.inserted_username.inserted_id # user_id는  User가 사용자가 입력한 username인 것의 id
         print("ToDo List 중 하나 선택 하세요 !")
@@ -69,8 +69,9 @@ class userint():
 #             print("프로그램이 종료되었습니다.")
 #             break
 #     return 
-userint.input_name()    
-userint.userinterface()
+cl_userint=userint()
+cl_userint.input_name()    
+cl_userint.userinterface()
 
 
 
