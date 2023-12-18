@@ -49,12 +49,15 @@ class userint:
         end_sign=input("종료 여부 : ")
         while True:
             if end_sign=="c" :
-                self.userinterface()        
+                self.userinterface()     
             elif end_sign=="q":
+                print("-----------------")
                 self.input_name()
                 self.userinterface()
-            else :
-                self.userinterface()   
+            elif end_sign=="x":
+                print("프로그램을 종료합니다.")
+                return
+
         pass
 
 
