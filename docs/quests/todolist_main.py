@@ -28,10 +28,11 @@ class userint:
         pass
     def input_name(self) :
         self.col_todos_list=insert_todo(todo_list_source)
-        self.username=input("Input Your Name:  ")
-        self.inserted_username=self.col_participants.insert_one({"User":self.username})  # username에 User가 input한 값 넣기
-    def userinterface(self):
-        user_id=self.inserted_username.inserted_id # user_id는  User가 사용자가 입력한 username인 것의 id
+        username=input("Input Your Name:  ")
+        self.inserted_result=self.col_participants.insert_one({"User":username})  # username에 User가 input한 값 넣기
+        return username
+    def userinterface(self, username):
+        user_id=self.inserted_result.inserted_id # user_id는  User가 사용자가 입력한 username인 것의 id
         print("ToDo List 중 하나 선택 하세요 !")
         list_todos_list=list(self.col_todos_list.find({}))
         for count in range(len(list_todos_list)) :
@@ -43,22 +44,23 @@ class userint:
         title_input=int(input("Title 번호 : "))
         title_contents=list_todos_list[title_input-1]["title"]
         status=input("Status:  ")
-        col_participants_todos.insert_one({"User_id":user_id, "User":self.username,"Title":title_contents, "Status":status})
-        return self.end_sign()
+        col_participants_todos.insert_one({"User_id":user_id, "User":username,"Title":title_contents, "Status":status})
+        
+        # return self.end_sign()
+
     def end_sign(self):
-        end_sign=input("종료 여부 : ")
+        end_sign="q"
         while True:
             if end_sign=="c" :
-                self.userinterface()     
+                self.userinterface(username)     
             elif end_sign=="q":
                 print("-----------------")
-                self.input_name()
-                self.userinterface()
+                username = self.input_name()
+                self.userinterface(username)
             elif end_sign=="x":
                 print("프로그램을 종료합니다.")
-                return
-
-        pass
+                break
+            end_sign=input("종료 여부 : ")
 
 
 # def repeater(end_sign):
@@ -72,9 +74,9 @@ class userint:
 #             print("프로그램이 종료되었습니다.")
 #             break
 #     return 
-cl_userint=userint()
-cl_userint.input_name()    
-cl_userint.userinterface()
+cl_userint=userint()   
+# cl_userint.userinterface(cl_userint.input_name())   
+cl_userint.end_sign()
 
 
 
