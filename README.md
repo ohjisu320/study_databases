@@ -1,4 +1,7 @@
-### mongodb functions
+### MongoDB functions
+
+<details>
+<summary>접기/펼치기</summary>
 
 |명령어|설명|예시|pythons|
 |--|--|--|--|
@@ -12,7 +15,14 @@
 |find({},{_id : 1, title:1, category:1, likes:1, })|원하는 column head(머릿말)로 전체 행 조회하기|db.posts.find({},{_id : 1, title:1, category:1, likes:1, })|.find()
 ||다음 dict를 추출하는 명령어||documents.next()
 |updateMany({:},{$set:{body:"update Post"}})|(조건에 맞는)여러 정보를 컬럼 단위로 변경하는 명령어|updateMany({category:{$eq:"Technology"}},{$set:{likes:1, body:"update Post", date:Date()}})|updateMany()
+
+ </details> 
+
+
 ### MongoDB Query Operators
+
+<details>
+<summary>접기/펼치기</summary>
 
 |명령어|설명|예시|pythons|
 |--|--|--|--|
@@ -21,3 +31,32 @@
 |$gt|value값보다 큰 값들을 의미하는 key|db.posts.find({likes  :{ $gt : 4}},{title:1, category:1, likes:1});|pythons|
 |$in|value값을 묶는 key|db.posts.find({category  :{ $in : ["Event", "Tech"]}},{title:1, category:1, likes:1});|pythons|
 |$set|여러 value값을 조회할 때, 어떤 것들을 조회할 지 설정해주는 key|db.posts.
+
+ </details> 
+
+### NoSQL with pythons
+
+<details>
+<summary>접기/펼치기</summary>
+
+|구분|설명|링크|
+|--|--|--|
+|Inserts|DB에 Dictionary 형태로 data 넣기|[mongo_inserts.py](./docs/NoSQL/mongo_inserts.py)[mongo_inserts_doubleCollection.py](./docs/NoSQL/mongo_inserts_doubleCollection.py)|
+|Finds|DB에서 원하는 key:value 찾기|[mongo_inserts.py](./docs/NoSQL/mongo_finds.py)|
+|Deletes|DB에서 전체 or 특정 record 삭제|[mongo_delete.py](./docs/NoSQL/mongo_delete.py)|
+
+
+ </details> 
+
+### Quests
+
+<details>
+<summary>접기/펼치기</summary>
+
+|구분|설명|링크|
+|--|--|--|
+|Inserts|function으로 data 넣기|[mongo_inserts.py](./docs/quests/mongo_insert_functions.py)|
+|CRU|DB에 data 넣고 사용자 입력 값과 비교해 채점(정답 판별)|[solvingProblem_main.py](./docs/quests/solvingProblem_main.py)[solvingProblem_function.py](./docs/quests/solvingProblem_function.py)|
+|CRU|DB에 data 넣고 사용자에게 보여준 후, 사용자 입력 값을 다른 DB에 insert|[todolist_main.py](./docs/quests/todolist_main.py)[todolist_function.py](./docs/quests/todolist_function.py)[display](./docs/img/todolist_main.png)|
+
+ </details> 

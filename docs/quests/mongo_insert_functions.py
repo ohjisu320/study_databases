@@ -1,7 +1,6 @@
-
+from pymongo import MongoClient
 # collection_name에 생성할 collection의 이름을 넣을 것임
 def connect_mongo(collection_name):
-    from pymongo import MongoClient
     mongoClient=MongoClient("mongodb://localhost:27017")
     database=mongoClient["local"]
     dict_fruit_info=database[collection_name]
