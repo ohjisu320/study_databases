@@ -40,10 +40,10 @@ FROM Suppliers
 WHERE SupplierID IN (
     SELECT SPID.SupplierID
     FROM (
-    SELECT SupplierID, COUNT(CategoryID)
+    SELECT SupplierID, COUNT(SupplierID) 
     FROM Products
     GROUP BY CategoryID
-    ORDER BY COUNT(CategoryID) DESC
+    ORDER BY COUNT(SupplierID) DESC
     LIMIT 2
 ) AS SPID
 );
