@@ -1,7 +1,8 @@
 # mongodb에 접속 -> 자원에 대한 class
 from pymongo import MongoClient
 # database 연결
-mongoClient=MongoClient("mongodb://localhost:27017/")
+# mongoClient=MongoClient("mongodb://localhost:27017/")
+mongoClient=MongoClient("mongodb://192.168.0.25:27017/")
 # collection 작업
 local=mongoClient["local"]
 # insert 작업 진행
