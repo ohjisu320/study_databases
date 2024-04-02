@@ -1,5 +1,5 @@
--- 1. 비 진성고객 리스트
-
+-- 비 진성고객 리스트
+-- CASE 사용해야 함
 
 SELECT Customers.*
 FROM Customers
@@ -8,7 +8,7 @@ FROM Customers
 GROUP BY Customers.CustomerID
 HAVING COUNT(Orders.OrderID) <= 1;
 
---  2. 판매자 중 수익 낮은 순위자 3명 정보, 총 판매액
+--  판매자 중 수익 낮은 순위자 3명 정보, 총 판매액
 
 SELECT Suppliers.*, ALLs.AllPrice
 FROM Suppliers
@@ -24,7 +24,7 @@ LIMIT 3
 ;
 
 
--- 3. 배송 회사별 총 배송 건수와 총 제품 금액 정보
+-- 배송 회사별 총 배송 건수와 총 제품 금액 정보
 
 SELECT Orders.ShipperID,SUM(ALLOders.ALLPrice) AS 	ShipperALLPrice
 FROM Orders
@@ -35,7 +35,7 @@ GROUP BY OrderID) ALLOders ON ALLOders.OrderID = Orders.OrderID
 GROUP BY ShipperID
 
 
--- 4. 제품 회사별 총 판매액과 정보
+-- 제품 회사별 총 판매액과 정보
 
 SELECT Suppliers.*,  SUM(Products.Price*SALES.CNT) AS ALLPrice
 FROM Suppliers
@@ -48,13 +48,15 @@ LEFT JOIN (
 GROUP BY SupplierID
 
 
--- 5. 카테고리별 상품 ID, 가격정보
+-- 카테고리별 상품 ID, 가격정보
 
-SELECT Categories.CategoryID, Products.Price*ProductSales.CNT AS CATESUM
+SELECT Categories.*, SUM(PRDTPrice.SUMPrice) AS SUMPricebyCATE
 FROM Categories
 LEFT JOIN Products
 ON Products.CategoryID = Categories.CategoryID
-LEFT JOIN (SELECT ProductID, COUNT(ProductID) AS CNT
-          FROM OrderDetails
-          GROUP BY ProductID) AS ProductSales ON ProductSales.ProductID = Products.ProductID
+LEFT JOIN (SELECT OrderDetails.ProductID, SUM(Products.Price) AS SUMPrice
+FROM OrderDetails
+LEFT JOIN Products 
+ON Products.ProductID = OrderDetails.ProductID
+GROUP BY ProductID) AS PRDTPrice ON PRDTPrice.ProductID = Products.ProductID
 GROUP BY CategoryID
