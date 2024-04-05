@@ -51,12 +51,25 @@
 ### Quests
 
 <details>
-<summary>접기/펼치기</summary>
+<summary>MongoDB</summary>
 
 |구분|설명|링크|
 |--|--|--|
 |Inserts|function으로 data 넣기|[mongo_inserts.py](./docs/quests/mongo_insert_functions.py)|
 |CRU|DB에 data 넣고 사용자 입력 값과 비교해 채점(정답 판별)|[solvingProblem_main.py](./docs/quests/solvingProblem_main.py)[solvingProblem_function.py](./docs/quests/solvingProblem_function.py)|
 |CRU|DB에 data 넣고 사용자에게 보여준 후, 사용자 입력 값을 다른 DB에 insert|[todolist_main.py](./docs/quests/todolist_main.py)[todolist_function.py](./docs/quests/todolist_function.py)[display](./docs/img/todolist_main.png)|
+
+ </details> 
+
+<details>
+<summary>MYSQL</summary>
+
+|구분|설명|링크|
+|--|--|--|
+|SELECT|SELECT, GROUP BY, WHERE-IN, ORDER BY, HAVING을 이용한 예제풀이 퀘스트|[select_group_havings_orderby.sql](docs\SQLs\quests\select_group_havings_orderby.sql)|
+|SELECT|INNER JOIN 활용한 예제풀이|[select_joins.sql](docs\SQLs\quests\select_joins.sql)
+|SELECT|SUBQUERY와 이전 학습내용을 활용한 예제 풀이|[select_subquerys.sql](docs\SQLs\quests\select_subquerys.sql)|
+|SELECT|이전 학습 내용 전부를 활용한 예제 풀이|[select_alls.sql](docs\SQLs\quests\select_alls.sql)|
+|COMMON CODE|COMMON CODE TABLE을 활용한 JOIN|[common_codes.sql](docs\SQLs\quests\common_codes.sql)|
 
  </details> 
